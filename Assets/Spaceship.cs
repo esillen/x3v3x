@@ -8,10 +8,13 @@ public class Spaceship : MonoBehaviour
     public Thruster leftThruster;
     public Thruster rightThruster;
     public Cannons cannons;
-
+    public GameObject explosionEffectPrefab;
+    
+   
 
     public void Update()
     {
+        // Controls
         if (Input.GetKey(KeyCode.D))
         {
             leftThruster.ThrusterOn();
@@ -31,7 +34,12 @@ public class Spaceship : MonoBehaviour
             cannons.Shoot();
         }
 
+    }
 
+
+    public void Die() {
+        Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 
