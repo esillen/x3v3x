@@ -9,6 +9,7 @@ public class Spaceship : MonoBehaviour
     public Thruster rightThruster;
     public Cannons cannons;
     public GameObject explosionEffectPrefab;
+    public Player player;
 
 
 
@@ -42,6 +43,7 @@ public class Spaceship : MonoBehaviour
     public void Die()
     {
         Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        player.Die();
         Destroy(gameObject);
     }
 
