@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -10,34 +11,6 @@ public class Spaceship : MonoBehaviour
     public Cannons cannons;
     public GameObject explosionEffectPrefab;
     public Player player;
-
-
-
-    public void Update()
-    {
-        // Controls
-        if (Input.GetKey(KeyCode.D))
-        {
-            leftThruster.ThrusterOn();
-        }
-        else
-        {
-            leftThruster.ThrusterOff();
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rightThruster.ThrusterOn();
-        }
-        else
-        {
-            rightThruster.ThrusterOff();
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            cannons.Shoot();
-        }
-
-    }
 
 
     public void Die()
@@ -56,5 +29,28 @@ public class Spaceship : MonoBehaviour
  
     }
 
+    internal void LeftThrusterOn()
+    {
+        leftThruster.ThrusterOn();
+    }
 
+    internal void RightThrusterOn()
+    {
+        rightThruster.ThrusterOn();
+    }
+
+    internal void LeftThrusterOff()
+    {
+        leftThruster.ThrusterOff();
+    }
+
+    internal void RightThrusterOff()
+    {
+        rightThruster.ThrusterOff();
+    }
+
+    internal void Shoot()
+    {
+        cannons.Shoot();
+    }
 }

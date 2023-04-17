@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public int playerNumber;
     public GameObject spaceshipPrefab;
     public Spaceship spaceship;
-    public float spawnTime = 8;
+
+
+    private float spawnTime = 5;
 
 
     void Start() {
@@ -19,8 +21,26 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (spaceship != null) { 
-            // Do stuff with controls
+        if (spaceship != null) {
+            if (Input.GetAxisRaw($"p{playerNumber} left") > 0)
+            {
+                spaceship.LeftThrusterOn();
+            }
+            else { 
+                spaceship.LeftThrusterOff();
+            }
+            if (Input.GetAxisRaw($"p{playerNumber} right") > 0)
+            {
+                spaceship.RightThrusterOn();
+            }
+            else
+            {
+                spaceship.RightThrusterOff();
+            }
+            if (Input.GetAxisRaw($"p{playerNumber} shoot") > 0)
+            {
+                spaceship.Shoot();
+            }
         }
     }
 
