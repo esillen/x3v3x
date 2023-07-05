@@ -7,12 +7,13 @@ public class Player : MonoBehaviour
     public int playerNumber;
     public GameObject spaceshipPrefab;
     public Spaceship spaceship;
+    public GameManager gameManager;
+    public SpawnPoint spawnPoint;
 
 
     private float spawnTime = 5;
     private ControlMap controlMap;
 
-    public SpawnPoint spawnPoint;
 
 
     void Awake() {
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (spaceship != null) {
+        if (spaceship != null && gameManager.gameIsOn) {
             if (controlMap.LeftKeyPressed)
             {
                 spaceship.LeftThrusterOn();
