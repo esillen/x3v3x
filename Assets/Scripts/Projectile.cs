@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public float damage => 26;
     public float speed;
     public string otherTeamTag;
+    public List<GameObject> hitPrefabs;
     
     void Update()
     {
@@ -24,11 +25,19 @@ public class Projectile : MonoBehaviour
             } else if (other.GetComponent<Mothership>() != null) {
                 other.GetComponent<Mothership>().TakeDamage(damage);
             }
-            Destroy(gameObject);
+            AfterHit(other);
         }
         else if (other.CompareTag("Obstacle")) {
-            Destroy(gameObject);
+            AfterHit(other);
         }
+    }
+
+    private void AfterHit(Collider other) {
+        GameObject randomHitPrefab = hitPrefabs[Random.Range(0, hitPrefabs.Count)];
+        Vector3 impactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position); 
+        GameObject instance = Instantiate(randomHitPrefab, impactPoint, Quaternion.identity);
+        instance.transform.localScale = Vector3.one * 5; // Scale up so you see it
+        Destroy(gameObject);
     }
 
 }
