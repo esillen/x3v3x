@@ -18,3 +18,8 @@ You will need to install the following free assets from the Unity Asset Store to
 - https://assetstore.unity.com/packages/p/volumetric-lines-29160
 - https://assetstore.unity.com/packages/2d/textures-materials/sky/starfield-skybox-92717
 - https://assetstore.unity.com/packages/3d/vehicles/space/low-poly-spaceships-set-209758
+
+You will also need to import TMP Essentials when prompted.
+
+
+The game will not compile when you start up and you need to resolve the missing assets first. Start in safe mode and ignore the errors until everything is imported.
