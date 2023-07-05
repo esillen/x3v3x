@@ -23,3 +23,6 @@ You will also need to import TMP Essentials when prompted.
 
 
 The game will not compile when you start up and you need to resolve the missing assets first. Start in safe mode and ignore the errors until everything is imported.
+
+
+![Menu image](images/screenshot2.png)

@@ -12,8 +12,10 @@ public class Player : MonoBehaviour
     private float spawnTime = 5;
     private ControlMap controlMap;
 
+    public SpawnPoint spawnPoint;
 
-    void Start() {
+
+    void Awake() {
         spaceship.player = this;
         controlMap = GetComponent<ControlMap>();
     }
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator RespawnAfterSomeTime() {
         yield return new WaitForSeconds(spawnTime);
-        GameObject newSpaceshipGameObject = Instantiate(spaceshipPrefab);
+        GameObject newSpaceshipGameObject = Instantiate(spaceshipPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
         spaceship = newSpaceshipGameObject.GetComponent<Spaceship>();
         spaceship.player = this;
     }

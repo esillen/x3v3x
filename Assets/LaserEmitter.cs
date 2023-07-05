@@ -20,7 +20,7 @@ public class LaserEmitter : MonoBehaviour
   private IEnumerator SpawnLaser()
   {
     yield return new WaitForSeconds(Random.Range(0.08f, 0.13f)); 
-    Vector3 offset = transform.up * offsetAmount * (laserSide ? 1 : -1);
+    Vector3 offset = transform.right * offsetAmount * (laserSide ? 1 : -1);
     laserSide = !laserSide;
     GameObject laserInstance = Instantiate(laserPrefab, transform.position + offset, Quaternion.identity);
     Destroy(laserInstance.GetComponent<Collider>()); // Don't get collissions

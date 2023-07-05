@@ -58,7 +58,7 @@ public class EffectsSpawner : MonoBehaviour
         Vector3 pointSomeWayDown = pointAtCamera + Camera.main.transform.forward * 10;
         GameObject laserEmitter = Instantiate(laserEmitterPrefab, pointSomeWayDown, Quaternion.identity);
         laserEmitter.transform.forward = Vector3.zero - laserEmitter.transform.position; // TODO skewed?
-        laserEmitter.transform.Rotate(new Vector3(Random.Range(-20, 20),0,0)); 
+        laserEmitter.transform.Rotate(new Vector3(0, Random.Range(-20, 20),0)); 
         StartCoroutine(SpawnLaserEmitterLoop());
     }
 
