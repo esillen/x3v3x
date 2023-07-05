@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class Player : MonoBehaviour
 {
@@ -12,24 +10,26 @@ public class Player : MonoBehaviour
 
 
     private float spawnTime = 5;
+    private ControlMap controlMap;
 
 
     void Start() {
         spaceship.player = this;
+        controlMap = GetComponent<ControlMap>();
     }
 
 
     void Update()
     {
         if (spaceship != null) {
-            if (Input.GetAxisRaw($"p{playerNumber} left") > 0)
+            if (controlMap.LeftKeyPressed)
             {
                 spaceship.LeftThrusterOn();
             }
             else { 
                 spaceship.LeftThrusterOff();
             }
-            if (Input.GetAxisRaw($"p{playerNumber} right") > 0)
+            if (controlMap.RightKeyPressed)
             {
                 spaceship.RightThrusterOn();
             }
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             {
                 spaceship.RightThrusterOff();
             }
-            if (Input.GetAxisRaw($"p{playerNumber} shoot") > 0)
+            if (controlMap.CenterKeyPressed)
             {
                 spaceship.Shoot();
             }
