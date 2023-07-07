@@ -20,10 +20,10 @@ public class MapChooser : MonoBehaviour
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) { // TODO: add control map stuff
+        if (ControlMap.AnyLeftKeyDown()) {
             currentMapIndex = Wraparound(currentMapIndex + 1, mapPrefabs.Count);
             ShowMapAtCurrentIndex();
-        } else if (Input.GetKeyDown(KeyCode.RightArrow)) { // TODO: add control map stuff
+        } else if (ControlMap.AnyRightKeyDown()) {
             currentMapIndex = Wraparound(currentMapIndex - 1, mapPrefabs.Count);
             ShowMapAtCurrentIndex();
         }
